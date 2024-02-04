@@ -4,6 +4,7 @@
 
 - [Project Overview](#project-overview)
 - [Problem Statement](#problem-statement)
+- [Key Stakeholders](#key-stakeholders)
 - [Data Source](#data-source)
 - [Tools](#tools)
 - [Project Walkthrough](#project-walkthrough)
@@ -11,9 +12,6 @@
 
 <h2>Project Overview</h2>
 This case study is the Capstone Project of Google Data Analytics Professional Certificate. Bellabeat is a high-tech manufacturer of health-focused smart products for women since 2013. The company has 5 focus products: bellabeat app, leaf, time, spring and bellabeat membership. Collecting data on activity, sleep, stress, and reproductive health has allowed Bellabeat to empower women with knowledge about their own health and habits. The co-founder and Chief Creative Officer, Urška Sršen is confident that an analysis of non-Bellebeat consumer data (ie. FitBit fitness tracker usage data) would reveal more opportunities for growth.
-
-<h2>Business Task</h2>
-Analyze FitBit Fitness Tracker Data to gain insights into how consumers are using the FitBit app and discover trends and insights for Bellabeat marketing strategy.
 
 <h2>Problem Statement</h2>
 
@@ -34,5 +32,14 @@ Analyze FitBit Fitness Tracker Data to gain insights into how consumers are usin
 - 30 FitBit users who consented to the submission of personal tracker data.
 - Data collected includes physical activity recorded in minutes, heart rate, sleep monitoring, daily activity and steps.
 
-<h2>Dataset Limitations</h2>
+<h2> ROCCC Analysis</h2>
+
+ROCCC (Reliable, Original, Comprehensive, Current & Cited) data test model determines the credibility and reliability of the dataset.
+- **Reliable: LOW.** This dataset contains a sample size of 30 female FitBit users. The key factor affecting the trustworthiness of this data is the necessity of a sample size of 30 or more to ensure the validity of the Central Limit Theorem (CLT). However, it's crucial to acknowledge that this sample size remains relatively limited when considering the entire FitBit customer network. Additionally, the data was collected only over a two-month period and is from six years ago. To accurately reflect gradual health trends the dataset should cover a longer period of time. Moreover, the age of the data raises concerns about its relevance to the present time.
+- **Original: LOW.** This dataset is provided by a third-party source (Amazon Mechanical Turk). First-party data would have been better to use.
+- **Comprehensive: MEDIUM.** Although this dataset contains information that match most of Bellabeat's products' parameters, the current sample size of this dataset is too small and the time span is too short.
+- **Current: LOW.** This data set is from 2016.
+- **Cited:MEDIUM.** This third-party dataset was available by Mobius via Kaggle.
+
+
 
