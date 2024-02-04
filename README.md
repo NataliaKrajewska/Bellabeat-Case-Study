@@ -1,4 +1,4 @@
-# Bellabeat-Case-Study
+# Bellabeat Case Study
 
 <h2>Table of Contents</h2>
 
@@ -39,7 +39,7 @@ ROCCC (Reliable, Original, Comprehensive, Current & Cited) data test model deter
 - **Original: LOW.** This dataset is provided by a third-party source (Amazon Mechanical Turk). First-party data would have been better to use.
 - **Comprehensive: MEDIUM.** Although this dataset contains information that match most of Bellabeat's products' parameters, the current sample size of this dataset is too small and the time span is too short.
 - **Current: LOW.** This data set is from 2016.
-- **Cited:MEDIUM.** This third-party dataset was available by Mobius via Kaggle.
+- **Cited: MEDIUM.** This third-party dataset was available by Mobius via Kaggle.
 
 
 
