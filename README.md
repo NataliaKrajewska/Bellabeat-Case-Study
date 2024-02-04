@@ -41,5 +41,45 @@ ROCCC (Reliable, Original, Comprehensive, Current & Cited) data test model deter
 - **Current: LOW.** This data set is from 2016.
 - **Cited: MEDIUM.** This third-party dataset was available by Mobius via Kaggle.
 
+The overall integrity of this data is lacking and it should be considered while making business recommendations. Despite these limitations, valuable insights can still be derived by identifying general trends that warrant further exploration using more relevant datasets. Additionally, this analysis can highlight data points that are currently absent but would be beneficial to track. This can assist Bellabeat in identifying and incorporating relevant data for future analyses.
 
+<h2>Tools</h2>
+
+- RStudio
+
+<h2>Project Walkthrough</h2>
+
+1. Installing and Loading Packages
+
+```
+install.packages("tidyverse")
+install.packages("ggplot2")
+install.packages("readr")
+install.packages("janitor")
+install.packages("dplyr")
+install.packages("lubridate")
+install.packages("forcats")
+install.packages("scales")
+install.packages("geosphere")
+install.packages("plotrix")
+install.packages("skimr")
+install.packages("tidyr")
+
+```
+```
+library(tidyverse)
+library("ggplot2")
+library("readr")
+library("janitor")
+library("dplyr")
+library("lubridate")
+library("forcats")
+library("scales")
+library("geosphere")
+library("plotrix")
+library("skimr")
+library("tidyr")
+```
+
+2. Data Importation
 
