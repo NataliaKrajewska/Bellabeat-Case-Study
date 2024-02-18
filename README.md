@@ -55,33 +55,28 @@ The overall integrity of this data is lacking and it should be considered while 
 
 ```
 install.packages("tidyverse")
-install.packages("ggplot2")
-install.packages("readr")
-install.packages("janitor")
-install.packages("dplyr")
-install.packages("lubridate")
-install.packages("forcats")
-install.packages("scales")
-install.packages("geosphere")
-install.packages("plotrix")
 install.packages("skimr")
-install.packages("tidyr")
-
+install.packages("janitor")
 ```
 ```
 library(tidyverse)
-library("ggplot2")
-library("readr")
-library("janitor")
-library("dplyr")
-library("lubridate")
-library("forcats")
-library("scales")
-library("geosphere")
-library("plotrix")
 library("skimr")
-library("tidyr")
+library("janitor")
 ```
 
 2. Data Importation
 
+```
+Daily_Activity <- read_csv("Fitabase/DailyActivity.csv")
+Daily_Steps <- read_csv("Fitabase/DailySteps.csv")
+Daily_Sleep <- read_csv("Fitabase/SleepDay.csv")
+Daily_Intensities <- read_csv("Fitabase/DailyIntensities.csv")
+Weight <- read_csv("Fitabase/WeightLogInfo.csv")
+```
+3. Data Processing
+
+In this step I explored data frames to check if they were imported correctly, find commonalities and inconsistencies.
+
+- Daily Activity
+
+```
