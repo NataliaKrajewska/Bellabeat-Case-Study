@@ -1,5 +1,7 @@
 # Bellabeat Case Study
 
+![](Bellabeat.png)
+
 <h2>Table of Contents</h2>
 
 - [Project Overview](#project-overview)
