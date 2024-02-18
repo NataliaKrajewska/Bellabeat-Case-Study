@@ -51,7 +51,7 @@ The overall integrity of this data is lacking and it should be considered while 
 
 <h2>Project Walkthrough</h2>
 
-1. Installing and Loading Packages
+**1. Installing and Loading Packages**
 
 ```
 install.packages("tidyverse")
@@ -64,7 +64,7 @@ library("skimr")
 library("janitor")
 ```
 
-2. Data Importation
+**2. Data Importation**
 
 ```
 Daily_Activity <- read_csv("Fitabase/DailyActivity.csv")
@@ -73,10 +73,155 @@ Daily_Sleep <- read_csv("Fitabase/SleepDay.csv")
 Daily_Intensities <- read_csv("Fitabase/DailyIntensities.csv")
 Weight <- read_csv("Fitabase/WeightLogInfo.csv")
 ```
-3. Data Processing
+**3. Data Processing**
 
 In this step I explored data frames to check if they were imported correctly, find commonalities and inconsistencies.
 
 - Daily Activity
 
+```
+head(Daily_Activity)
+``` 
+```
+# A tibble: 6 × 15
+          Id ActivityDate TotalSteps TotalDistance TrackerDistance LoggedActivitiesDista…¹
+       <dbl> <chr>             <dbl>         <dbl>           <dbl>                   <dbl>
+1 1503960366 4/12/2016         13162          8.5             8.5                        0
+2 1503960366 4/13/2016         10735          6.97            6.97                       0
+3 1503960366 4/14/2016         10460          6.74            6.74                       0
+4 1503960366 4/15/2016          9762          6.28            6.28                       0
+5 1503960366 4/16/2016         12669          8.16            8.16                       0
+6 1503960366 4/17/2016          9705          6.48            6.48                       0
+# ℹ abbreviated name: ¹​LoggedActivitiesDistance
+# ℹ 9 more variables: VeryActiveDistance <dbl>, ModeratelyActiveDistance <dbl>,
+#   LightActiveDistance <dbl>, SedentaryActiveDistance <dbl>, VeryActiveMinutes <dbl>,
+#   FairlyActiveMinutes <dbl>, LightlyActiveMinutes <dbl>, SedentaryMinutes <dbl>,
+#   Calories <dbl>
+```
+```
+colnames(Daily_Activity)
+```
+```
+[1] "Id"                       "ActivityDate"             "TotalSteps"
+[4] "TotalDistance"            "TrackerDistance"          "LoggedActivitiesDistance"
+[7] "VeryActiveDistance"       "ModeratelyActiveDistance" "LightActiveDistance"
+[10] "SedentaryActiveDistance"  "VeryActiveMinutes"        "FairlyActiveMinutes"     
+[13] "LightlyActiveMinutes"     "SedentaryMinutes"         "Calories"                
+```
+```
+glimpse(Daily_Activity)
+```
+```
+Rows: 940
+Columns: 15
+$ Id                       <dbl> 1503960366, 1503960366, 1503960366, 1503960366, 150396…
+$ ActivityDate             <chr> "4/12/2016", "4/13/2016", "4/14/2016", "4/15/2016", "4…
+$ TotalSteps               <dbl> 13162, 10735, 10460, 9762, 12669, 9705, 13019, 15506, …
+$ TotalDistance            <dbl> 8.50, 6.97, 6.74, 6.28, 8.16, 6.48, 8.59, 9.88, 6.68, …
+$ TrackerDistance          <dbl> 8.50, 6.97, 6.74, 6.28, 8.16, 6.48, 8.59, 9.88, 6.68, …
+$ LoggedActivitiesDistance <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ VeryActiveDistance       <dbl> 1.88, 1.57, 2.44, 2.14, 2.71, 3.19, 3.25, 3.53, 1.96, …
+$ ModeratelyActiveDistance <dbl> 0.55, 0.69, 0.40, 1.26, 0.41, 0.78, 0.64, 1.32, 0.48, …
+$ LightActiveDistance      <dbl> 6.06, 4.71, 3.91, 2.83, 5.04, 2.51, 4.71, 5.03, 4.24, …
+$ SedentaryActiveDistance  <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ VeryActiveMinutes        <dbl> 25, 21, 30, 29, 36, 38, 42, 50, 28, 19, 66, 41, 39, 73…
+$ FairlyActiveMinutes      <dbl> 13, 19, 11, 34, 10, 20, 16, 31, 12, 8, 27, 21, 5, 14, …
+$ LightlyActiveMinutes     <dbl> 328, 217, 181, 209, 221, 164, 233, 264, 205, 211, 130,…
+$ SedentaryMinutes         <dbl> 728, 776, 1218, 726, 773, 539, 1149, 775, 818, 838, 12…
+$ Calories                 <dbl> 1985, 1797, 1776, 1745, 1863, 1728, 1921, 2035, 1786, …
+```
+- Daily Sleep
+
+```
+head(Daily_Sleep)
+```
+```
+# A tibble: 6 × 5
+          Id SleepDay              TotalSleepRecords TotalMinutesAsleep TotalTimeInBed
+       <dbl> <chr>                             <dbl>              <dbl>          <dbl>
+1 1503960366 4/12/2016 12:00:00 AM                 1                327            346
+2 1503960366 4/13/2016 12:00:00 AM                 2                384            407
+3 1503960366 4/15/2016 12:00:00 AM                 1                412            442
+4 1503960366 4/16/2016 12:00:00 AM                 2                340            367
+5 1503960366 4/17/2016 12:00:00 AM                 1                700            712
+6 1503960366 4/19/2016 12:00:00 AM                 1                304            320
+```
+```
+colnames(daily_ sleep)
+```
+```
+[1] "Id"                 "SleepDay"           "TotalSleepRecords"  "TotalMinutesAsleep"
+[5] "TotalTimeInBed"
+```
+- Daily Intensities
+
+```
+head(Daily_Intensities)
+```
+```
+# A tibble: 6 × 10
+          Id ActivityDay SedentaryMinutes LightlyActiveMinutes FairlyActiveMinutes
+       <dbl> <chr>                  <dbl>                <dbl>               <dbl>
+1 1503960366 4/12/2016                728                  328                  13
+2 1503960366 4/13/2016                776                  217                  19
+3 1503960366 4/14/2016               1218                  181                  11
+4 1503960366 4/15/2016                726                  209                  34
+5 1503960366 4/16/2016                773                  221                  10
+6 1503960366 4/17/2016                539                  164                  20
+# ℹ 5 more variables: VeryActiveMinutes <dbl>, SedentaryActiveDistance <dbl>,
+#   LightActiveDistance <dbl>, ModeratelyActiveDistance <dbl>, VeryActiveDistance <dbl>
+```
+```
+colnames(Daily_Intensities)
+```
+```
+[1] "Id"                       "ActivityDay"              "SedentaryMinutes"        
+ [4] "LightlyActiveMinutes"     "FairlyActiveMinutes"      "VeryActiveMinutes"       
+ [7] "SedentaryActiveDistance"  "LightActiveDistance"      "ModeratelyActiveDistance"
+[10] "VeryActiveDistance"
+```
+- Daily Steps
+
+```
+head(Daily_Steps)
+```
+```
+# A tibble: 6 × 3
+          Id ActivityDay StepTotal
+       <dbl> <chr>           <dbl>
+1 1503960366 4/12/2016       13162
+2 1503960366 4/13/2016       10735
+3 1503960366 4/14/2016       10460
+4 1503960366 4/15/2016        9762
+5 1503960366 4/16/2016       12669
+6 1503960366 4/17/2016        9705
+```
+```
+colnames(Daily_Steps)
+```
+```
+[1] "Id"          "ActivityDay" "StepTotal"
+```
+- Weight
+
+```
+head(Weight)
+```
+```
+# A tibble: 6 × 8
+          Id Date                WeightKg WeightPounds   Fat   BMI IsManualReport   LogId
+       <dbl> <chr>                  <dbl>        <dbl> <dbl> <dbl> <lgl>            <dbl>
+1 1503960366 5/2/2016 11:59:59 …     52.6         116.    22  22.6 TRUE           1.46e12
+2 1503960366 5/3/2016 11:59:59 …     52.6         116.    NA  22.6 TRUE           1.46e12
+3 1927972279 4/13/2016 1:08:52 …    134.          294.    NA  47.5 FALSE          1.46e12
+4 2873212765 4/21/2016 11:59:59…     56.7         125.    NA  21.5 TRUE           1.46e12
+5 2873212765 5/12/2016 11:59:59…     57.3         126.    NA  21.7 TRUE           1.46e12
+6 4319703577 4/17/2016 11:59:59…     72.4         160.    25  27.5 TRUE           1.46e12
+```
+```
+colnames(Weight)
+```
+```
+[1] "Id"             "Date"           "WeightKg"       "WeightPounds"   "Fat"           
+[6] "BMI"            "IsManualReport" "LogId"
 ```
